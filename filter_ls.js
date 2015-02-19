@@ -7,13 +7,13 @@ var list = process.argv[2];
 var ext = process.argv[3];
 
 fs.readdir(list, function (err, data) {
-  if (err) throw err;
+    data.forEach(function(file){
+        if(path.extname(file) === '.' + ext)
+            console.log(file)
+    })
   
- var filtered = data.filter(function filteredList(data){
-     var period = '.';
-  return path.extname(data) === period.concat(ext) ;
 });
-console.log(filtered);
-});
+
+
 
 
